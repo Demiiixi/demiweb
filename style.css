@@ -37,26 +37,12 @@ overflow: hidden;
   display: flex;
   justify-content: center;
 }
-.name {
+#name {
   font-family: 'Oswald', sans-serif;
   text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.259); 
   font-weight: bold;
   font-size: 49px;
-  color: rgb(0, 0, 0);
-}
-#name1 {
-  color: rgb(255, 255, 255);
-  filter: blur(11px);
-  translate: 2% -15%;
-} 
-#name2 {
-  color: rgb(0, 0, 0);
-  filter: blur(3px);
-  translate: 3% 3%;
-}
-#name3 {
-color: rgb(44, 44, 44);
-translate: 1% 1%;
+  color: rgb(162, 162, 162);
 }
 @media (max-width: 400px) {
   #name {
@@ -81,18 +67,46 @@ translate: 1% 1%;
     object-position: 100%, 50%;
     z-index: 0;
 }
-
+#text-box {
+text-shadow: 1px 1px 5px rgb(255, 255, 255);
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 80%;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-size: 1.5rem;
+  font-family: 'Oswald', sans-serif;
+}
 .image-container {
   z-index: 0;
   position: relative;
   width: 40vmin ;
   height: 56vmin;
   object-position: 100%, 50%;
+  cursor: pointer;
+}
+#luz2 {
+  background-color: rgba(134, 128, 128, 0.5);
+  height: 500px;
+  aspect-ratio:  1;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  border-radius: 50%;
+  background: linear-gradient(90deg, rgb(8, 7, 7) 0%, rgb(255, 255, 255) 100%);
+  animation: rotate 20s infinite;
+  filter: blur(200px);
+  z-index: 1;
 }
 
-
 .image-text {
-  background: radial-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+    font-family: 'Oswald', sans-serif;
   display: flex;
   justify-content: center;
   align-items: flex-end;
@@ -107,6 +121,7 @@ translate: 1% 1%;
   padding: 1rem;
   font-size: 1.5rem;
   text-align: center;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
 }
 .image-text:hover {
   opacity: 1;

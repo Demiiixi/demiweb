@@ -1,6 +1,13 @@
 const track = document.getElementById("image-track");	
 const luz = document.getElementById("luz");
 const names = document.querySelectorAll(".name");
+const name = document.getElementById('name');
+const image1 = document.getElementById('image-container-1');
+
+image1.addEventListener('click', function(event) {
+  
+});
+
 
 window.onmousedown = e => {
   track.dataset.mouseDownAt = e.clientX;
@@ -57,8 +64,25 @@ document.addEventListener('mousemove', function(event) {
   const imageContainers = document.querySelectorAll('.image-container');
   imageContainers.forEach((container) => {
     const rect = container.getBoundingClientRect();
-    const x = ((clientX - rect.left) / rect.width) * 50 - 25; // -25 to 25 range
-    const y = ((clientY - rect.top) / rect.height) * 50 - 25; // -25 to 25 range
+    const x = -((clientX - rect.left) / rect.width) * 50 - 25; // -25 to 25 range
+    const y = -((clientY - rect.top) / rect.height) * 50 - 25; // -25 to 25 range
+    container.style.boxShadow = `${x/10}px ${y/10}px 14px   rgba(255, 255, 255, 0.2)`;
+    name.style.textShadow = `${x/10}px ${y/10}px 14px rgba(255, 255, 255, 0.2)`;
+  });
+});
+document.addEventListener('mousemove', function(event) {
+  const { clientX, clientY } = event;
+  const imageContainers = document.querySelectorAll('.image-container');
+
+  imageContainers.forEach((container, index) => {
+    const rect = container.getBoundingClientRect();
+    const x = -((clientX - rect.left) / rect.width) * 50 - 25; // -25 to 25 range
+    const y = -((clientY - rect.top) / rect.height) * 50 - 25; // -25 to 25 range
     container.style.boxShadow = `${x}px ${y}px 20px rgba(0, 0, 0, 0.2)`;
+
+    // Aplica la misma sombra a los nombres
+    if (name[index]) {
+      name[index].style.textShadow = `${x}px ${y}px 20px rgba(0, 0, 0, 0.2)`;
+    }
   });
 });
