@@ -90,6 +90,7 @@ translate: 1% 1%;
   object-position: 100%, 50%;
 }
 
+
 .image-text {
   background: radial-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
   display: flex;
