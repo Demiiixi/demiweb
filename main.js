@@ -51,3 +51,14 @@ document.body.onmousemove = Event => {
   luz.style.left = `${clientX}px`;
   luz.style.top = `${clientY}px`;
 };
+
+document.addEventListener('mousemove', function(event) {
+  const { clientX, clientY } = event;
+  const imageContainers = document.querySelectorAll('.image-container');
+  imageContainers.forEach((container) => {
+    const rect = container.getBoundingClientRect();
+    const x = ((clientX - rect.left) / rect.width) * 50 - 25; // -25 to 25 range
+    const y = ((clientY - rect.top) / rect.height) * 50 - 25; // -25 to 25 range
+    container.style.boxShadow = `${x}px ${y}px 20px rgba(0, 0, 0, 0.2)`;
+  });
+});
